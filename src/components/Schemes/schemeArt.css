@@ -1,0 +1,210 @@
+/* Scheme card scenes (SchemeArt.jsx). Prefixed sa- so they do not clash. */
+
+.sa-flame,
+.sa-glow,
+.sa-spin,
+.sa-hit,
+.sa-leaf,
+.sa-twinkle {
+  transform-box: fill-box;
+}
+
+/* Rain: slanted streaks blown left by the wind. */
+@keyframes sa-rain {
+  from { transform: translate3d(0, 0, 0) rotate(15deg); }
+  to { transform: translate3d(-36px, 140px, 0) rotate(15deg); }
+}
+.sa-rain { animation: sa-rain 0.6s linear infinite; }
+
+@keyframes sa-splash {
+  0% { transform: scale(0.2); opacity: 0; }
+  8% { opacity: 0.9; }
+  45% { transform: scale(1); opacity: 0; }
+  100% { transform: scale(1); opacity: 0; }
+}
+.sa-splash { animation: sa-splash 1.6s ease-out infinite; }
+
+@keyframes sa-drift {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(-18px); }
+}
+.sa-drift { animation: sa-drift 18s ease-in-out infinite; }
+
+@keyframes sa-flash {
+  0%, 86%, 100% { opacity: 0; }
+  87% { opacity: 0.55; }
+  88% { opacity: 0.08; }
+  89.5% { opacity: 0.4; }
+  92% { opacity: 0; }
+}
+.sa-flash { opacity: 0; animation: sa-flash 7s linear infinite; }
+
+@keyframes sa-bolt {
+  0%, 86%, 100% { opacity: 0; }
+  87%, 89.5% { opacity: 1; }
+  88% { opacity: 0.2; }
+  92% { opacity: 0; }
+}
+.sa-bolt { opacity: 0; animation: sa-bolt 7s linear infinite; filter: drop-shadow(0 0 4px #fef08a); }
+
+/* Festive: string lights, flames and soft bokeh. */
+@keyframes sa-bulb {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+.sa-bulb { animation: sa-bulb 1.6s ease-in-out infinite; }
+
+@keyframes sa-flicker {
+  0%, 100% { transform: scale(1, 1) skewX(0deg); }
+  20% { transform: scale(0.94, 1.08) skewX(-4deg); }
+  45% { transform: scale(1.04, 0.93) skewX(3deg); }
+  70% { transform: scale(0.97, 1.05) skewX(-2deg); }
+}
+.sa-flame { transform-origin: 50% 100%; animation: sa-flicker 0.8s ease-in-out infinite; }
+
+@keyframes sa-glow {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.12); }
+}
+.sa-glow { transform-origin: 50% 50%; animation: sa-glow 2.2s ease-in-out infinite; }
+
+@keyframes sa-bokeh {
+  0%, 100% { transform: translateY(0); opacity: 0.4; }
+  50% { transform: translateY(-8px); opacity: 0.85; }
+}
+.sa-bokeh { animation: sa-bokeh 5s ease-in-out infinite; }
+
+/* Winter */
+@keyframes sa-snow {
+  0% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(10px, 60px, 0); }
+  100% { transform: translate3d(-6px, 120px, 0); }
+}
+.sa-snow { animation: sa-snow 5s linear infinite; }
+
+/* Summer */
+@keyframes sa-spin { to { transform: rotate(360deg); } }
+.sa-spin { transform-origin: 50% 50%; animation: sa-spin 40s linear infinite; }
+
+@keyframes sa-haze {
+  0%, 100% { transform: scaleY(1); opacity: 0.8; }
+  50% { transform: scaleY(1.4); opacity: 1; }
+}
+.sa-haze { transform-origin: bottom; animation: sa-haze 3s ease-in-out infinite; }
+
+/* Holi */
+@keyframes sa-burst {
+  0%, 100% { transform: scale(0.85); opacity: 0.55; }
+  50% { transform: scale(1.15); opacity: 0.85; }
+}
+.sa-burst { animation: sa-burst 4s ease-in-out infinite; }
+
+@keyframes sa-rise {
+  0% { transform: translateY(0) scale(0.7); opacity: 0; }
+  20% { opacity: 0.9; }
+  100% { transform: translateY(-110px) scale(1.1); opacity: 0; }
+}
+.sa-rise { animation: sa-rise 4s ease-out infinite; }
+
+/* Target: arrow flies in, ring flashes on the hit. */
+@keyframes sa-arrow {
+  0% { transform: translate(-280px, -50%); opacity: 0; }
+  8% { opacity: 1; }
+  30%, 85% { transform: translate(0, -50%); opacity: 1; }
+  32% { transform: translate(-3px, -50%); }
+  100% { transform: translate(0, -50%); opacity: 0; }
+}
+.sa-arrow { animation: sa-arrow 3.6s cubic-bezier(0.3, 0.7, 0.4, 1) infinite; }
+
+@keyframes sa-hit {
+  0%, 29% { transform: scale(0.3); opacity: 0; }
+  31% { opacity: 1; }
+  55%, 100% { transform: scale(3.5); opacity: 0; }
+}
+.sa-hit { transform-origin: 50% 50%; animation: sa-hit 3.6s ease-out infinite; }
+
+/* Volume: sheets drop onto the stack once, then stay. */
+@keyframes sa-stack {
+  0% { transform: translateY(-90px); opacity: 0; }
+  60% { transform: translateY(2px); opacity: 1; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+.sa-stack { animation: sa-stack 0.6s cubic-bezier(0.3, 0.8, 0.4, 1) both; }
+
+/* Payment */
+@keyframes sa-coin {
+  0% { transform: translateY(0) rotateY(0deg); opacity: 0; }
+  12% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { transform: translateY(130px) rotateY(720deg); opacity: 0; }
+}
+.sa-coin { animation: sa-coin 2.4s ease-in infinite; }
+
+@keyframes sa-twinkle {
+  0%, 100% { opacity: 0.2; transform: scale(0.6); }
+  50% { opacity: 1; transform: scale(1.1); }
+}
+.sa-twinkle { animation: sa-twinkle 2.4s ease-in-out infinite; }
+
+/* Loyalty */
+@keyframes sa-shoot {
+  0%, 70% { transform: translate(0, 0) rotate(-25deg); opacity: 0; }
+  72% { opacity: 1; }
+  84% { transform: translate(-150px, 70px) rotate(-25deg); opacity: 0; }
+  100% { opacity: 0; }
+}
+.sa-shoot { opacity: 0; animation: sa-shoot 6s ease-out infinite; }
+
+@keyframes sa-float {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -5px; }
+}
+.sa-float { animation: sa-float 4s ease-in-out infinite; }
+
+/* Onboarding */
+@keyframes sa-grow {
+  from { transform: scaleY(0); }
+  to { transform: scaleY(1); }
+}
+.sa-grow { transform-origin: bottom; animation: sa-grow 1.2s cubic-bezier(0.3, 0.8, 0.4, 1) both; }
+
+@keyframes sa-leaf {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(-6deg); }
+}
+.sa-leaf { transform-origin: 0% 100%; animation: sa-leaf 3s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .sa-scene,
+  .sa-scene * {
+    animation: none !important;
+  }
+}
+
+/* Scene shown without motion (Dealer dashboard). */
+.sa-still,
+.sa-still * {
+  animation: none !important;
+}
+
+/* "How schemes work" strip: a dot runs along the line between steps. */
+@keyframes sa-travel {
+  0% { left: 0; opacity: 0; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { left: calc(100% - 0.5rem); opacity: 0; }
+}
+.sa-travel { animation: sa-travel 1.8s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .sa-travel { animation: none; opacity: 0; }
+}
+
+/* Festive (non-Diwali): paper confetti tumbling down. */
+@keyframes sa-confetti {
+  0% { transform: translate3d(0, 0, 0) rotate(0deg) rotateX(0deg); opacity: 0; }
+  10% { opacity: 1; }
+  50% { transform: translate3d(10px, 60px, 0) rotate(180deg) rotateX(180deg); }
+  100% { transform: translate3d(-6px, 125px, 0) rotate(360deg) rotateX(360deg); opacity: 0.8; }
+}
+.sa-confetti { animation: sa-confetti 3.5s linear infinite; }
